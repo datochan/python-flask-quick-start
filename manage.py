@@ -2,9 +2,9 @@ import os
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 
-from app import APP_MODULES
-from app.lib.bootstrap import create_app
-from app.lib.extensions import db
+from quick_flask import APP_MODULES
+from quick_flask.lib.bootstrap import create_app
+from quick_flask.lib.extensions import db
 
 os.environ['PROJECT_PATH'] = os.path.abspath(os.path.dirname(__file__))
 
