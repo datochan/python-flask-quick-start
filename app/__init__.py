@@ -10,10 +10,10 @@
 
 from flask import Blueprint
 
-__core__ = Blueprint('core', __name__)
+__app__ = Blueprint('app', __name__)
 
 APP_MODULES = (
-    {"entry": __core__},
+    {"entry": __app__},
 )
 
 
