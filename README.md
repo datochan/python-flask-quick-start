@@ -1,2 +1,2 @@
 # python-flask-quick-start
-An  python flask web framework template.
+An python3 flask web framework template.
