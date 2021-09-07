@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    comm.views
+    core.views
     ~~~~~~~~~~~~~~
     项目的演示代码.
     :copyright: (c) 2019-10-08 by datochan.

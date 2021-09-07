@@ -1,5 +1,5 @@
 """
-    common.lib.extensions
+    core.lib.extensions
     ~~~~~~~~~~~~~~
     项目的扩展模块, 如果有新的扩展可在这里添加集中导入.
 

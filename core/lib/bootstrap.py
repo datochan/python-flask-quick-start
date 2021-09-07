@@ -1,5 +1,5 @@
 """
-    common.lib.bootstrap
+    core.lib.bootstrap
     ~~~~~~~~~~~~~~
     项目的入口文件, 用来启动项目加载相应的模块.
 
