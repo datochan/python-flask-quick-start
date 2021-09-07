@@ -1,16 +1,21 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# __author__ = 'gordon'
 
 import os
 import sys
 import logging
+from quick_flask import Configure
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(os.path.join(PROJECT_ROOT, 'quick_flask'))
+sys.path.append(os.path.join(PROJECT_ROOT, 'app'))
 
 
-class Config:
+class DemoConfig(Configure):
     def __init__(self):
         pass
+
+    JSON_AS_ASCII = False
 
     SECRET_KEY = os.environ.get('SECRET_KEY') or ''
 
@@ -21,33 +26,30 @@ class Config:
     LOGGER_LEVEL = logging.DEBUG
     LOGGER_FORMAT = '%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s'
     LOGGER_DATE_FORMAT = '%a, %d %b %Y %H:%M:%S'
-    LOGGER_FILENAME = 'python-flask.log'
+    LOGGER_FILENAME = 'nike.log'
     LOGGER_FILEMODE = 'w'
-
-    CACHE_TYPE = 'simple'
 
     @staticmethod
     def init_app(app):
         pass
 
 
-class DevelopmentConfig(Config):
+class DemoConfigDev(DemoConfig):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or "mysql+pymysql://root@localhost:3306/flask-dev" \
-                                                                    "?charset=utf8 "
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
+                              'mysql+pymysql://root@localhost:3306/demo?charset=utf8'
 
 
-class ProductionConfig(Config):
+class DemoConfigProd(DemoConfig):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-                              'mysql+pymysql://root@localhost:3306/flask?charset=utf8'
+                              'mysql+pymysql://root@localhost:3306/demo?charset=utf8'
 
     @classmethod
     def init_app(cls, app):
-        Config.init_app(app)
-
+        Configure.init_app(app)
 
 config = {
-    'development': DevelopmentConfig,
-    'production': ProductionConfig,
-    'default': DevelopmentConfig
+    'development': DemoConfigDev,
+    'production': DemoConfigProd,
+    'default': DemoConfigDev
 }

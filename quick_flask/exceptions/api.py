@@ -1,4 +1,4 @@
-from flask import json
+from flask import json, jsonify
 from werkzeug.exceptions import HTTPException
 
 
@@ -6,6 +6,14 @@ class APIException(HTTPException):
     code = 500
     service_code = None
     message = 'Internal Server Error'
+
+    def __str__(self):
+        resp = json.dumps({
+            "code": self.code,
+            "service_code": self.service_code,
+            "message": self.message,
+        })
+        return resp
 
     def __init__(self, msg=None, code=None, scode=None):
         if code:
