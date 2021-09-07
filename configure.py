@@ -5,7 +5,7 @@ import sys
 import logging
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(os.path.join(PROJECT_ROOT, 'core'))
+sys.path.append(os.path.join(PROJECT_ROOT, 'quick_flask'))
 
 
 class Config:

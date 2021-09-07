@@ -5,7 +5,7 @@
     项目的演示代码.
     :copyright: (c) 2019-10-08 by datochan.
 """
-from app import __app__
+from quick_flask.app import __app__
 
 
 @__app__.route('/', methods=['GET', 'POST'])

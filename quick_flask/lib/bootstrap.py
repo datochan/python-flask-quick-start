@@ -6,7 +6,7 @@
     :copyright: (c) 2019-10-08 by datochan.
 """
 from flask import Flask
-from configure import config
+from quick_flask.configure import config
 
 from .extensions import db, login_manager
 

@@ -1,6 +1,6 @@
 from flask import request
 from wtforms import Form
-from app.exceptions import ParameterException
+from quick_flask.exceptions import ParameterException
 
 
 class BaseForm(Form):
