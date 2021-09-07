@@ -6,7 +6,7 @@
     :copyright: (c) 2019-10-08 by datochan.
 """
 from flask import Flask
-from quick_flask.configure import config
+from quick_flask import Configure
 
 from .extensions import db, login_manager
 
@@ -14,14 +14,15 @@ DEFAULT_APP_NAME = 'python-flask-quick-start'
 DEFAULT_APP_MODULES = ()
 
 
-def create_app(config_name=None, modules=None):
+def create_app(config: Configure = None, modules=None):
     if modules is None:
         modules = DEFAULT_APP_MODULES
 
     app = Flask(DEFAULT_APP_NAME)
 
-    app.config.from_object(config.get(config_name, "default"))
-    config[config_name].init_app(app)
+    if config is not None:
+        app.config.from_object(config)
+        config.init_app(app)
 
     # register module
     configure_modules(app, modules)
