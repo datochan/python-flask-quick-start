@@ -5,9 +5,9 @@
     项目的演示代码.
     :copyright: (c) 2019-10-08 by datochan.
 """
-from quick_flask.app import __app__
+from quick_flask import quick_flask
 
 
-@__app__.route('/', methods=['GET', 'POST'])
+@quick_flask.route('/', methods=['GET', 'POST'])
 def index():
     return 'Hello, It Works!'
