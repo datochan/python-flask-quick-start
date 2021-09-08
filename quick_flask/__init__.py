@@ -51,7 +51,7 @@ class Configure(object):
     LOGGER_FILEMODE = 'w'
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or "mysql+pymysql://root@localhost:3306/flask-dev" \
-                                                                    "?charset=utf8 "
+                                                                    "?charset=utf8"
 
     @staticmethod
     def init_app(app):
