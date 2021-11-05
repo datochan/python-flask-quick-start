@@ -6,15 +6,16 @@
     :copyright: (c) 2019-10-08 by datochan.
 """
 from flask import Flask
-from quick_flask import Configure
-
-from .extensions import db, login_manager
+from flask_quick import Configure
 
 DEFAULT_APP_NAME = 'python-flask-quick-start'
-DEFAULT_APP_MODULES = ()
+DEFAULT_APP_MODULES = []
 
 
-def create_app(config: Configure = None, modules=None):
+def create_app(config: Configure = None, extension=None, modules=None):
+    if extension is None:
+        extension = []
+
     if modules is None:
         modules = DEFAULT_APP_MODULES
 
@@ -24,19 +25,10 @@ def create_app(config: Configure = None, modules=None):
         app.config.from_object(config)
         config.init_app(app)
 
-    # register module
-    configure_modules(app, modules)
-    configure_extensions(app)
+    for ext in extension:
+        ext.init_app(app)
 
-    return app
-
-
-def configure_extensions(app):
-    # configure extensions
-    db.init_app(app)
-    login_manager.init_app(app)
-
-
-def configure_modules(app, modules):
     for module in modules:
         app.register_blueprint(module.get("entry", None), url_prefix=module.get("prefix", None))
+
+    return app

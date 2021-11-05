@@ -2,9 +2,9 @@ import os
 import logging
 from flask import Blueprint, jsonify, current_app
 from werkzeug.exceptions import HTTPException
-from quick_flask.exceptions import APIException
+from flask_quick.exceptions import APIException
 
-quick_flask = Blueprint('quick_flask', __name__)
+quick_flask = Blueprint('flask_quick', __name__)
 
 
 @quick_flask.app_errorhandler(Exception)

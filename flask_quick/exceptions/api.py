@@ -1,4 +1,4 @@
-from flask import json, jsonify
+from flask import json
 from werkzeug.exceptions import HTTPException
 
 

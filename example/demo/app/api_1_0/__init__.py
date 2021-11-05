@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, current_app
 from flask.json import loads
 from werkzeug.exceptions import HTTPException
-from quick_flask.exceptions import APIException
+from flask_quick.exceptions import APIException
 
 __api_1_0 = Blueprint('api', __name__)
 

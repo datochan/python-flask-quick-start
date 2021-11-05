@@ -5,7 +5,7 @@
 import os
 import sys
 import logging
-from quick_flask import Configure
+from flask_quick import Configure
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(os.path.join(PROJECT_ROOT, 'app'))
@@ -47,6 +47,7 @@ class DemoConfigProd(DemoConfig):
     @classmethod
     def init_app(cls, app):
         Configure.init_app(app)
+
 
 config = {
     'development': DemoConfigDev,
