@@ -26,5 +26,5 @@ setup(
     license="MIT",
     name='python-flask-quick-start',
     packages=find_packages(),
-    version='1.0',
+    version='1.1',
 )
