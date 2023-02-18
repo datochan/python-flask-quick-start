@@ -1,1 +1,1 @@
-git+git://github.com/datochan/python-flask-quick-start.git
+python-flask-quick-start==1.2
