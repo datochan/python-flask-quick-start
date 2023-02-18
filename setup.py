@@ -17,7 +17,6 @@ setup(
         "Flask-Login==0.6.2",
         "Flask-Migrate==4.0.4",
         "Flask-Principal==0.4.0",
-        "Flask-Script==2.0.6",
         "Flask-Security==3.0.0",
         "Flask-SQLAlchemy==3.0.3",
         "PyMySQL==1.0.2",
@@ -26,5 +25,5 @@ setup(
     license="MIT",
     name='python-flask-quick-start',
     packages=find_packages(),
-    version='1.3',
+    version='1.4',
 )

@@ -1,6 +1,5 @@
 import os
-from flask_script import Manager, Shell
-from flask_migrate import Migrate, MigrateCommand
+from flask_migrate import Migrate
 
 from app import DEMO_MODULES
 from configure import config, DemoConfig
@@ -24,22 +23,17 @@ if os.path.exists('./conf/config.properties'):
         if len(var) == 2:
             app.config[var[0]] = var[1]
 
-manager = Manager(app)
 migrate = Migrate(app, db)
 
-
-def make_shell_context():
-    return dict(app=app, db=db)
-
-
-manager.add_command("shell", Shell(make_context=make_shell_context))
-
 #
-# python3 ./manage.py db init
-# python3 ./manage.py db migrate -m "initial migration"
-# python3 ./manage.py db upgrade
-manager.add_command('db', MigrateCommand)
-
-
-if __name__ == '__main__':
-    manager.run()
+# # 初始化数据库：
+# flask db init
+#
+# # 迁移新更改：
+# flask db migrate
+#
+# # 升级：
+# flask db upgrade
+#
+# # 启动服务
+# flask run
