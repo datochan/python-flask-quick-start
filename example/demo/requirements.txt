@@ -1,1 +1,1 @@
-python-flask-quick-start==1.2
+python-flask-quick-start==1.3
